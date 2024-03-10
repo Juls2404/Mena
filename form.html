@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/style/formulario.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="cc">
+        <h1>Registrar Productos</h1>
+        <form  action="txtagregarProductos" method="post" enctype="multipart/form-data">
+            <div class="o">
+                <span>Codigo :</span>
+                <input id="txtcodigo" name="txtcodigo" placeholder="Codigo" type="text">
+            </div>
+            <div class="o">
+                <span>Nombre :</span>
+                <input id="nombre" name="nombre" placeholder="Nombre" type="text">
+            </div>
+            <div class="o">
+                <span>Precio :</span>
+                <input id="precio" name="precio" placeholder="Precio" type="text">
+            </div>
+            <div class="o">
+                <span>Categoria :</span>
+                <select name="categoria" id="categoria">
+                    <option value="">seleccione su categoria</option>
+                    {% for categoria in categorias %}
+                        <option value="{{categoria['_id']}}">{{categoria['nombre']}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="o">
+                <span>Foto</span>
+                <input type="file" id="imagen" name="imagen" onchange="visualizarFoto(event)">
+            </div>
+            <div class="bb">
+                <button  type="submit" class="b1">Agregar</button>
+                <button type="submit" class="b2">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
